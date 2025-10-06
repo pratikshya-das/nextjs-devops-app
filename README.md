@@ -1,4 +1,6 @@
-DevOps Internship Assessment — Next.js CI/CD with Docker, GitHub Actions & Minikube
+DevOps Internship Assessment 
+     
+     Next.js CI/CD with Docker, GitHub Actions & Minikube
 
  Objective
 
