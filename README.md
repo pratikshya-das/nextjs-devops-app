@@ -16,25 +16,28 @@ This project demonstrates a complete DevOps workflow:
 
 Tech Stack
 
-Next.js
+   1. Next.js
 
-Docker
+   2. Docker
 
-GitHub Actions
+   3. GitHub Actions
 
-GitHub Container Registry (GHCR)
+   4. GitHub Container Registry (GHCR)
 
-Kubernetes (Minikube)
+   5. Kubernetes (Minikube)
 
 Setup Instructions
 
 1. Clone the repository
-git clone https://github.com/pratikshya-das/nextjs-devops-app.git
-cd nextjs-devops-app
+   
+         git clone https://github.com/pratikshya-das/nextjs-devops-app.git
 
-2. Run locally (optional)
-npm install
-npm run dev
+         cd nextjs-devops-app
+
+3. Run locally (optional)
+   
+            npm install
+            npm run dev
 
 
 Visit: http://localhost:3000
@@ -42,10 +45,12 @@ Visit: http://localhost:3000
 Docker Setup
 
 Build Docker image
-docker build -t nextjs-devops-app:local .
+
+     docker build -t nextjs-devops-app:local .
 
 Run container
-docker run -p 3000:3000 nextjs-devops-app:local
+
+     docker run -p 3000:3000 nextjs-devops-app:local
 
 
 Access app at: http://localhost:3000
@@ -54,52 +59,58 @@ GitHub Actions CI/CD
 
 Every push to the main branch triggers:
 
-Docker image build
+     Docker image build
 
-Automatic push to GHCR
-→ ghcr.io/pratikshya-das/nextjs-devops-app:latest
+    Automatic push to GHCR
+    → ghcr.io/pratikshya-das/nextjs-devops-app:latest
 
 Workflow file:
-.github/workflows/docker.yml
+
+       .github/workflows/docker.yml
 
 Kubernetes Deployment (Minikube)
 
 Start Minikube
-minikube start --driver=docker
+    
+    minikube start --driver=docker
 
 Apply Kubernetes manifests
-kubectl create namespace demo
-kubectl apply -f k8s/ -n demo
+
+     kubectl create namespace demo
+     kubectl apply -f k8s/ -n demo
 
 Verify pods and services
-kubectl get pods -n demo
-kubectl get svc -n demo
+      
+      kubectl get pods -n demo
+      kubectl get svc -n demo
 
 Access application
-minikube -n demo service nextjs-service --url
+
+     minikube -n demo service nextjs-service --url
 
  App URL will open automatically in browser.
 
 Folder Structure
 
 nextjs-devops-app/
-├── .github/workflows/docker.yml
-├── k8s/
-│   ├── deployment.yaml
-│   ├── service.yaml
-├── Dockerfile
-├── .dockerignore
-├── package.json
-└── README.md
+
+     ├── .github/workflows/docker.yml
+     ├── k8s/
+     │   ├── deployment.yaml
+     │   ├── service.yaml
+     ├── Dockerfile
+     ├── .dockerignore
+     ├── package.json
+     └── README.md
 
 Final Checklist
 
- Containerized app with Docker
+    Containerized app with Docker
 
- CI/CD pipeline on GitHub Actions
+    CI/CD pipeline on GitHub Actions
 
- Image pushed to GHCR
+    Image pushed to GHCR
 
- Kubernetes deployment on Minikube
-
- Working application accessible via NodePort
+    Kubernetes deployment on Minikube
+  
+    Working application accessible via NodePort
